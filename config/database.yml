@@ -2,6 +2,7 @@ development:
   adapter: postgresql
   encoding: unicode
   host: localhost
+  database: hacks_development
 
 test:
   adapter: postgresql
