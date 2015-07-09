@@ -9,6 +9,10 @@ class Centre < ActiveRecord::Base
 
   before_validation :create_slug, :if => proc { self.slug.blank? and ! self.name.blank? }
 
+  def to_param
+    slug
+  end
+
   private
     def create_slug
       existing_slugs = event.centres.select {|a| a.slug.match(/^#{self.name.parameterize}(\-[0-9]+)?$/)  }.size

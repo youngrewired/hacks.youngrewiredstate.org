@@ -20,6 +20,6 @@ end
 
 child :centres do
   attributes :name
-  code(:url) {|c| centre_event_url(event, c.slug) }
+  code(:url) {|c| event_centre_url(event, c.slug) }
   code(:count) {|c| c.projects.count }
 end

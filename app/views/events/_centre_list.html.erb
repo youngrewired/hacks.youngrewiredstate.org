@@ -4,7 +4,7 @@
   <ul>
     <% event.centres.each do |centre| %>
       <li>
-        <h3><%= link_to centre.name, centre_event_path(event, centre.slug) %></h3>
+        <h3><%= link_to centre.name, event_centre_path(event, centre) %></h3>
         <p><%= pluralize centre.projects.count, "projects" %></p>
       </li>
     <% end %>

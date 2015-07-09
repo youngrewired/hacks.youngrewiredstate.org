@@ -15,8 +15,7 @@ Projects::Application.routes.draw do
     root :to => 'events#index'
   end
 
-  get 'events/:id/centres' => "events#show_centre"
-  get 'events/:id/centres/:centre' => "events#show_centre", :as => :centre_event
+  get 'events/:event_id/centres/:id' => "centres#show", :as => :event_centre
   get 'events/:event_id/projects', to: 'projects#index', as: :event_projects
 
   resources :events, only: [:index,:show] do

@@ -1,7 +1,7 @@
 object @centre
 
 attribute :name
-code(:url) {|e| centre_event_url(event, @centre.slug)}
+code(:url) {|e| event_centre_url(event, @centre.slug)}
 
 child :projects do
   attributes :title, :team, :summary

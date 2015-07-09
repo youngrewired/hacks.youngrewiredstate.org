@@ -73,7 +73,7 @@ class ProjectsController < ApplicationController
 
       if project.persisted?
         if event.use_centres?
-          breadcrumbs.add project.centre.name, centre_event_path(event, project.centre.slug) if event.use_centres
+          breadcrumbs.add project.centre.name, event_centre_path(event, project.centre.slug) if event.use_centres
         end
 
         breadcrumbs.add project.title, event_project_path(event, project)
