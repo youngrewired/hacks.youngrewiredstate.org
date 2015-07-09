@@ -1,6 +1,9 @@
 class ProjectsController < ApplicationController
   before_filter :set_breadcrumbs
 
+  def index
+  end
+
   def new
     unless event.enable_project_creation
       flash.alert = 'Projects can no longer be created here for this event. Please get in touch if you\'d like to add a project here.'
@@ -54,10 +57,15 @@ class ProjectsController < ApplicationController
     if params[:id]
       @project ||= event.projects.find_by_slug(params[:id]) || not_found
     else
-      @project ||= event.projects.build
+      @project ||= Project.new(event: event)
     end
   end
   helper_method :project
+
+  def projects
+    @projects ||= event.projects
+  end
+  helper_method :projects
 
   private
     def set_breadcrumbs
