@@ -21,7 +21,22 @@ class Event < ActiveRecord::Base
   end
 
   def winners
-    self.award_categories.featured.map(&:award_winners).flatten.uniq
+    featured_award_categories.map(&:award_winners).flatten.uniq
+  end
+
+  def featured_award_winners_by_level
+    featured_award_categories.group_by(&:level).map {|level, categories|
+      winners = categories.map(&:award_winners).flatten.uniq
+      [level, winners]
+    }
+  end
+
+  def featured_award_categories
+    award_categories.featured
+  end
+
+  def other_award_categories
+    award_categories.not_featured
   end
 
   def has_secret?
