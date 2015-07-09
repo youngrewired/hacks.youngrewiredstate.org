@@ -1,0 +1,12 @@
+/*
+ *= require formtastic
+ *= require_self
+*/
+
+@import "mixins";
+
+@import "reset";
+@import "layout";
+
+@import "yrs/variables";
+@import "yrs/**/*";

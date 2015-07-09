@@ -1,0 +1,38 @@
+header.global {
+  h1 a {
+    display: block;
+    background: asset-url('logo-with-ruby.jpg') no-repeat center center;
+
+    background-size: 127px 61px;
+    width: 127px;
+    height: 61px;
+
+    @include media-down(tablet) {
+      background-size: 253px 122px;
+      width: 253px;
+      height: 122px;
+    }
+
+    text-indent: -9999px;
+    margin: 15px auto;
+  }
+
+  h2 {
+    background: $primary-colour;
+    color: $white;
+    text-align: center;
+
+    padding: 16px;
+    font-size: 16px;
+
+    @include media-down(tablet) {
+      padding: 32px;
+      font-size: 32px;
+      font-weight: 800;
+    }
+
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+}

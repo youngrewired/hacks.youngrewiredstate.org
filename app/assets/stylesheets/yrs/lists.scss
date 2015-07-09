@@ -1,0 +1,70 @@
+@mixin grouped-list {
+
+  /* This removes the spacing between elements */
+  font-size: 0;
+  margin-top: 20px;
+
+  h2, ul {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  h2 {
+    padding-bottom: 0px;
+
+    @include media-down(tablet) {
+      width: 33%;
+      padding-right: 40px;
+      line-height: 1.3;
+    }
+  }
+  ul {
+    @include media-down(tablet) {
+      width: 66%;
+    }
+
+    padding-top: 15px;
+  }
+
+  li {
+    @include list-item-with-description;
+  }
+
+}
+
+@mixin two-column-list {
+  font-size: 0;
+
+  li {
+    @include list-item-with-description;
+
+    @include media-down(tablet) {
+      width: 50%;
+      display: inline-block;
+    }
+  }
+}
+
+@mixin list-item-with-description {
+  margin-bottom: 4px;
+
+  @include media-down(tablet) {
+    margin-bottom: 8px;
+  }
+
+  h3 {
+    font-weight: 600;
+    font-size: 15px;
+
+    @include media-down(tablet) {
+      font-size: 19px;
+    }
+  }
+  p {
+    font-size: 12px;
+
+    @include media-down(tablet) {
+      font-size: 14px;
+    }
+  }
+}

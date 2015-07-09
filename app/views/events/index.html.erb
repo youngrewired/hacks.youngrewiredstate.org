@@ -1,11 +1,9 @@
 <% content_for(:title) { "Hacks Database" } %>
 
-<h1>Hacks Database</h1>
-
-<h2>Event List</h2>
-
-<ul>
-  <% events.each do |event| %>
-  <li><%= link_to event.title, event_path(event) %></li>
-  <% end %>
-<ul>
+<section class="events">
+  <ul>
+    <% events.each do |event| %>
+    <li><%= link_to event.title, event_path(event) %></li>
+    <% end %>
+  <ul>
+</section>

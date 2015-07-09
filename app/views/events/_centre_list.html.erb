@@ -1,10 +1,12 @@
-<ul class="centre_list">
-    <% event.centres.each do |c| %>
-    <li>
-      <a href="<%= centre_event_path(event, c.slug) %>" title="<%= c.name %>">
-        <h3><%= c.name %></h3>
-        <span><%= pluralize c.projects.count, "hack" %></span>
-      </a>
-    </li>
+<section class="centres">
+  <h2><%= pluralize(event.projects.count, 'projects') %> from <%= pluralize(event.centres.count, 'centre') %></h2>
+
+  <ul>
+    <% event.centres.each do |centre| %>
+      <li>
+        <h3><%= link_to centre.name, centre_event_path(event, centre.slug) %></h3>
+        <p><%= pluralize centre.projects.count, "projects" %></p>
+      </li>
     <% end %>
-</ul>
+  </ul>
+</section>

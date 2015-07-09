@@ -1,0 +1,27 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,300,600,800);
+
+body {
+  background: #fff;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  color: $text-colour;
+}
+
+main {
+  @include wrap;
+
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+  @include media-down(tablet) {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  padding: 0;
+}
+
+a {
+  &:link, &:visited {
+    color: $primary-colour;
+  }
+}

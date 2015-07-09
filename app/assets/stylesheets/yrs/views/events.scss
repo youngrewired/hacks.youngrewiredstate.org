@@ -1,0 +1,24 @@
+section.events {
+
+  li a {
+    @include wrap;
+
+    display: block;
+    margin-bottom: 5px;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    background: #f6f6f6;
+
+    font-size: 23px;
+    text-align: center;
+
+    line-height: 1.3;
+
+    &:hover {
+      background: #e6e6e6;
+    }
+  }
+
+}

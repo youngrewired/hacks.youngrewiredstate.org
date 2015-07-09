@@ -1,0 +1,21 @@
+$full-width: 1020px;
+
+@mixin media-down($mode) {
+  @if $mode == tablet {
+    @media (min-width: $full-width) { @content; }
+  }
+}
+
+@mixin wrap {
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @include media-down(tablet) {
+    width: $full-width;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

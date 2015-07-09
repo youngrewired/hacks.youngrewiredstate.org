@@ -1,0 +1,6 @@
+<li>
+  <%= link_to event_project_path(event, winner) do %>
+    <h2><%= winner.title %></h2>
+    <p><%= winner.award_categories.featured.map(&:title).join(",") %></p>
+  <% end %>
+</li>

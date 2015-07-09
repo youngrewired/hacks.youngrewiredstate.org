@@ -15,13 +15,12 @@ Projects::Application.routes.draw do
     root :to => 'events#index'
   end
 
-  # devise_for :admins, :path => 'admin'
-
   get 'events/:id/centres' => "events#show_centre"
   get 'events/:id/centres/:centre' => "events#show_centre", :as => :centre_event
+  get 'events/:event_id/projects', to: 'projects#index', as: :event_projects
 
-  resources :events, :only => [:index,:show] do
-    resources :projects, :except => [:index,:destroy], :path => ''
+  resources :events, only: [:index,:show] do
+    resources :projects, except: [:index, :destroy], path: ''
   end
 
   root :to => 'events#index'

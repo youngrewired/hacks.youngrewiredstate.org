@@ -1,0 +1,7 @@
+section.projects {
+  @include wrap;
+}
+
+.project-list {
+  @include grouped-list;
+}

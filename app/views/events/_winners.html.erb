@@ -1,0 +1,18 @@
+<div class="winning-categories">
+  <% event.featured_award_winners_by_level.each do |level, winners| %>
+    <div class="level level-<%= level %>">
+      <ul>
+        <%= render partial: 'winner', collection: winners %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% event.other_award_categories.each do |category| %>
+    <div class="award-category">
+      <h2><%= category.title %></h2>
+      <ul>
+        <%= render partial: 'projects/project', collection: category.award_winners %>
+      </ul>
+    </div>
+  <% end %>
+</div>

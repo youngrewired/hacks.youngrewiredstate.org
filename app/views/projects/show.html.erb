@@ -1,4 +1,7 @@
+<%= render partial: 'events/event_header' %>
 <% content_for(:title) { "#{@project.title} - #{@event.title}" } %>
+
+
 <div id="project_control">
     <div class="left heading"><h1><%= @project.title %></h1> <h2>by <%= @project.team %></h2></div>
 	<div class="right action"><%= link_to "Edit project", edit_event_project_path(@event,@project), :class => 'action' %></div>

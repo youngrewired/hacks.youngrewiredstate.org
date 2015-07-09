@@ -1,74 +1,55 @@
 <!doctype html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <title><%= (content_for?(:title)) ? content_for(:title) + " - " : "" %>Rewired State</title>
+  <title><%= (content_for?(:title)) ? content_for(:title) + " - " : "" %>Young Rewired State</title>
 
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
 
   <%= csrf_meta_tags %>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 </head>
 <body>
-  <!-- full width header -->
-  <div id="header">
-    <div class="wrap">
-      <h1 id="logo"><a href="http://rewiredstate.org/" title="Rewired State Homepage">Rewired State</a></h1>
-      <ul id="navigation">
-          <% unless home_url.blank? %>
-            <li><a href="<%= home_url %>">&larr; Back to <%= URI.parse(home_url).host %></a></li>
-          <% end %>
-      </ul>
-      <div class="clear"></div>
-    </div>
-  </div>
+  <header class="global">
+    <h1><%= link_to "Young Rewired State", "http://www.yrs.io/" %></h1>
+    <h2>
+      <% if content_for?(:page_title) %>
+        <%= yield(:page_title) %>
+      <% else %>
+        Hacks and creations
+      <% end %>
+    </h2>
+  </header>
 
-  <div id="content">
-    <div class="wrap">
-        <div class="breadcrumbs">
-          <ol>
-  					<li class="crumb_home"><a href="<%= root_path %>" title="Home">Home</a></li>
-  					<%= breadcrumbs.render(:format => :SoleListItem) %>
-  				</ol>
-  			</div>
-        <% if admin_signed_in? %>
-          <%= render :partial => 'admin/shared/user' %>
-        <% end %>
+  <main>
+    <% flash.each do |key,message| %>
+      <div class="flash flash_<%= key %>"><%= message %></div>
+    <% end %>
 
-        <% flash.each do |key,message| %>
-          <div class="flash flash_<%= key %>"><%= message %></div>
-        <% end %>
+    <%= yield %>
+  </main>
 
-        <% if content_for?(:sidebar) -%>
-          <div class="sidebar left">
-            <div class="inner">
-                <%= content_for(:sidebar) %>
-            </div>
-          </div>
-          <div class="main right">
-            <%= yield %>
-          </div>
-          <div class="clear"></div>
-          <% else -%>
-          <div class="fullwidth">
-            <%= yield %>
-          </div>
-        <% end -%>
-      </div><!-- /wrap -->
-  </div><!-- /content -->
+  <footer>
+    <% if breadcrumbs.items.any? %>
+      <div class="breadcrumbs">
+        <ol>
+          <li class="crumb_home"><%= link_to "All hacks and creations", root_path %></li>
+          <%= breadcrumbs.render(:format => :SoleListItem) %>
+        </ol>
+      </div>
+    <% end %>
 
-  <div id="footer">
-    <div class="wrap">
+    <% if admin_signed_in? %>
+      <%= render :partial => 'admin/shared/user' %>
+    <% end %>
 
-        <div class="copyright left">&copy; <a href="http://companiesopen.org/uk/07149780/rewired-state-ltd">Rewired State Ltd</a></div>
-
-        <div class="clear"></div>
-    </div>
-  </div>
-
-  <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Bitter" %>
+    <p><%= link_to "Young Rewired State", "http://www.yrs.io/", class: 'logo' %></p>
+    <p>&copy; Young Rewired State</p>
+  </footer>
 </body>
 </html>

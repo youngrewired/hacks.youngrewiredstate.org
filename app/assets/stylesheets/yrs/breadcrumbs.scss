@@ -1,0 +1,41 @@
+.breadcrumbs {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  text-align: left;
+
+  ol {
+    // overflow: auto;
+    // height: 18px;
+    // line-height: 18px;
+  }
+
+  li {
+    display: inline-block;
+    font-size: 14px;
+
+    a {
+      vertical-align: middle;
+
+      &:link, &:visited {
+        color: $text-colour;
+        text-decoration: none;
+      }
+
+      &:hover, &:active {
+        text-decoration: underline;
+      }
+    }
+
+    &:not(:first-of-type):before {
+      content: '▶︎';
+      display: inline-block;
+
+      padding: 0 5px;
+      font-size: 9px;
+      color: $primary-colour;
+      vertical-align: middle;
+    }
+  }
+}

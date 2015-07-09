@@ -1,0 +1,6 @@
+<div class="project-list">
+  <h2><%= pluralize projects.size, "project" %></h2>
+  <ul>
+    <%= render partial: 'projects/project', collection: projects %>
+  </ul>
+</div>

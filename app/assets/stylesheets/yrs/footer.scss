@@ -1,0 +1,28 @@
+footer {
+  @include wrap;
+
+  text-align: center;
+  font-size: 16px;
+  padding-bottom: 30px;
+  border-bottom: 5px solid $primary-colour;
+
+  a.logo {
+    display: block;
+
+    background: asset-url('footer-logo.png') no-repeat center center;
+
+    background-size: 115px 95px;
+    width: 115px;
+    height: 95px;
+
+    margin: 50px auto;
+
+    text-indent: -9999px;
+  }
+
+  .admin-toolbox {
+    background: #f6f6f6;
+    padding: 20px;
+    margin: 50px 0;
+  }
+}
