@@ -94,16 +94,11 @@ section.event {
     @include wrap;
     padding-top: 15px;
     padding-bottom: 15px;
+    text-align: center;
 
     a {
-      display: inline-block;
       font-size: 23px;
       font-weight: 600;
-
-      @include media-down(tablet) {
-        margin-left: 33%;
-        width: 66%;
-      }
     }
   }
 
@@ -119,7 +114,7 @@ section.event {
 
     ul {
       padding-top: 20px;
-      
+
       @include two-column-list;
     }
   }
