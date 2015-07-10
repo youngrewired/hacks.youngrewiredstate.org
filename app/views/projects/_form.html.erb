@@ -102,18 +102,16 @@
 </fieldset>
 
 <% if project.new_record? %>
-    <% unless event.has_secret? %>
-    <fieldset class="secret">
-        <p>
-            <%= f.label :secret, "Choose a project password <span>*</span>".html_safe %>
-            <%= f.text_field :secret %>
-            <span class="field_description">Enter a word which will be required to make further changes to this project.</span>
-        </p>
-    </fieldset>
-    <% end %>
+  <fieldset class="secret">
+    <p>
+      <%= f.label :secret, "Choose a project password <span>*</span>".html_safe %>
+      <%= f.text_field :secret %>
+      <span class="field_description">Enter a word which will be required to make further changes to this project.</span>
+    </p>
+  </fieldset>
 
-    <p>Once you're happy with the details, hit <em>Create</em> below. Your project will appear immediately on the <%= event.title %> event page.</p>
-    <p class="submit"><%= f.submit "Create Project" %></p>
+  <p>Once you're happy with the details, hit <em>Create</em> below. Your project will appear immediately on the <%= event.title %> event page.</p>
+  <p class="submit"><%= f.submit "Create Project" %></p>
 <% else %>
-    <p class="submit"><%= f.submit "Save Project" %></p>
+  <p class="submit"><%= f.submit "Save Project" %></p>
 <% end %>

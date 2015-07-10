@@ -1,0 +1,123 @@
+section.project {
+  text-align: center;
+
+  $project-width: 600px;
+
+  header {
+    @include wrap;
+
+    padding: 10px 0 25px;
+  }
+
+  h1 {
+    padding: 0 0 7px;
+  }
+
+  h2 {
+    padding: 0 40px;
+
+    @include media-down(tablet) {
+      padding: 0 100px;
+    }
+  }
+
+  img {
+    margin: 30px 0;
+
+    max-width: 100%;
+  }
+
+  .description {
+    @include wrap;
+
+    margin: 20px auto;
+
+    text-align: left;
+    font-size: 16px;
+    line-height: 1.4;
+
+    background: #eee;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    @include media-down(tablet) {
+      width: $project-width;
+
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    p {
+      padding-bottom: 15px;
+
+      &:last-of-type {
+        padding-bottom: 0;
+      }
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    h1, h2, h3 {
+      font-size: 22px;
+      font-weight: 600;
+      padding: 15px 0 15px;
+
+      &:first-child {
+        padding-top: 5px;
+      }
+    }
+  }
+
+  .external-links {
+    @include wrap;
+
+    margin-top: 30px;
+    margin-bottom: 20px;
+
+    li {
+      padding-bottom: 5px;
+    }
+  }
+
+  .actions {
+    margin: 30px 0;
+
+    a {
+      @include button;
+    }
+  }
+
+  .awards {
+    margin: 15px 0;
+
+    li {
+      @include wrap;
+
+      background: #eee;
+      padding: 20px;
+
+      @include media-down(tablet) {
+        width: $project-width;
+      }
+
+      &.award-overall {
+        background: no-repeat 10px center;
+        background-size: auto 48px;
+
+        &.level-1 {
+          background-color: $gold-award-colour;
+          background-image: asset-url('gold-trophy.png');
+        }
+        &.level-2 {
+          background-color: $silver-award-colour;
+          background-image: asset-url('silver-medal.png');
+        }
+      }
+      &.award-mention {
+        background: $special-mention-colour;
+      }
+    }
+  }
+}

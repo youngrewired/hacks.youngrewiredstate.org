@@ -8,7 +8,7 @@ section.event {
     }
 
     a {
-      @include button;
+      @include button($size: large);
     }
   }
 
@@ -61,7 +61,7 @@ section.event {
       }
 
       &.level-1 {
-        background: #faf3e7;
+        background: $gold-award-colour;
 
         a {
           background-image: asset-url('gold-trophy.png');
@@ -72,7 +72,7 @@ section.event {
         }
       }
       &.level-2 {
-        background: #fbfbfb;
+        background: $silver-award-colour;
 
         a {
           background-image: asset-url('silver-medal.png');

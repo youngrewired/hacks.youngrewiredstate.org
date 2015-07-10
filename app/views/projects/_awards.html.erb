@@ -1,0 +1,7 @@
+<ul class="awards">
+  <% project.award_categories.each do |award| %>
+    <li class="award-<%= award.format %> level-<%= award.level %>">
+      <%= award.title %>
+    </li>
+  <% end %>
+</ul>

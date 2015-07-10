@@ -16,7 +16,8 @@ Projects::Application.routes.draw do
   end
 
   get 'events/:event_id/centres/:id' => "centres#show", :as => :event_centre
-  get 'events/:event_id/projects', to: 'projects#index', as: :event_projects
+  get 'events/:event_id/projects', to: 'projects#index', as: :event_projects_list
+  post 'events/:event_id/projects', to: 'projects#create', as: :event_projects
 
   resources :events, only: [:index,:show] do
     resources :projects, except: [:index, :destroy], path: ''

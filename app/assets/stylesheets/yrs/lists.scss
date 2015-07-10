@@ -5,7 +5,10 @@
   margin-top: 20px;
 
   h2, ul {
-    display: inline-block;
+    @include media-down(tablet) {
+      display: inline-block;
+    }
+
     vertical-align: top;
   }
 

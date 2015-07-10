@@ -15,7 +15,7 @@
     <%= render :partial => 'centre_list' %>
   <% elsif event.winners.any? && event.projects.count > 30  %>
     <div class="see-all">
-      <%= link_to "See all #{pluralize(event.projects.size, "project")} →", event_projects_path(event) %>
+      <%= link_to "See all #{pluralize(event.projects.size, "project")} →", event_projects_list_path(event) %>
     </div>
   <% else %>
     <%= render partial: 'projects/project_list', locals: { projects: event.projects } %>

@@ -1,78 +1,49 @@
 <%= render partial: 'events/event_header' %>
-<% content_for(:title) { "#{@project.title} - #{@event.title}" } %>
+<% content_for(:title) { " - #{project.title}" } %>
 
+<section class="project">
+  <header>
+    <h1><%= project.title %></h1>
+    <h2>by <%= project.team %></h2>
+  </header>
 
-<div id="project_control">
-    <div class="left heading"><h1><%= @project.title %></h1> <h2>by <%= @project.team %></h2></div>
-	<div class="right action"><%= link_to "Edit project", edit_event_project_path(@event,@project), :class => 'action' %></div>
-	<div class="clear"></div>
+  <% if project.has_won_award? %>
+    <%= render partial: 'awards' %>
+  <% end %>
 
-    <div class="feature <%= "empty" unless @project.image.present? %>">
-        <% if @project.image.present? -%>
-            <%= image_tag @project.image.url(:project) %>
-        <% else -%>
-        <div class="no_picture">
-            <h3><%= no_picture_message %></h3>
-            <p>We don't have a screenshot of <strong><%= @project.title %></strong> yet! If you are the owner, add one to enhance your project entry.</p>
-        </div>
-        <% end -%>
-    </div>
-    <div class="intro">
-        <div class="inner">
-            <%= @project.summary %>
-            <%= link_to "Read more", "#description", :class => "more" %>
-        </div>
-    </div>
-    <div class="links">
-        <div class="inner">
-            <ul>
-                <li class="icon_url">Project URL: <%= link_to @project.format_url(@project.url), @project.url rescue "<em>None</em>".html_safe %></li>
+  <% if project.image.present? %>
+    <%= image_tag project.image.url(:project) %>
+  <% end %>
 
-                <% if @project.github_url.present? -%><li class="icon_github">GitHub: <%= link_to format_github_url(@project.github_url), @project.github_url %></li>
-                <% elsif @project.svn_url.present? -%><li class="icon_code">SVN URL: <%= link_to @project.format_url(@project.svn_url), @project.svn_url %></li>
-                <% elsif @project.code_url.present? -%><li class="icon_code">Code URL: <%= link_to @project.format_url(@project.code_url), @project.code_url %></li><% end -%>
+  <div class="description">
+    <%= mkdn project.description %>
+  </div>
 
-                <% if @project.twitter.present? -%><li class="icon_twitter">Twitter: <%= twitter_links_for(@project) %></li><% end -%>
-            </ul>
-        </div>
-    </div>
-    <div class="clear clearpad"></div>
+  <nav class="external-links">
+    <ul>
+      <% if project.url.present? %>
+        <li>Project URL: <%= link_to project.format_url(project.url), project.url %></li>
+      <% end %>
 
-    <% if @project.has_won_award? -%>
-        <% @project.award_categories.each do |award| -%>
-            <div class="award award_<%= award.format %> <%= (award.level.nil?) ? "" : "level_#{award.level}" %>">
-                <p class="summary"><%= @project.title %> <%= award.project_action %> <strong><%= award.title %></strong> at <%= @event.title %>!</p>
-                <% if award.description -%><p class="description"><%= award.description %></p><% end -%>
-            </div>
-        <% end -%>
-    <% end -%>
+      <% if project.github_url.present? %>
+        <li class="icon_github">GitHub: <%= link_to format_github_url(project.github_url), project.github_url %></li>
+      <% end %>
 
-    <!--<div class="column left">
+      <% if project.svn_url.present? %>
+        <li class="icon_code">SVN URL: <%= link_to project.format_url(project.svn_url), project.svn_url %></li>
+      <% end %>
 
-    </div>
-    <div class="column right">-->
-        <div id="description">
-            <%= mkdn @project.description %>
-        </div>
-        <% unless @project.data.nil? or @project.data.empty? -%>
-            <div class="markdown_box project_data">
-                <h3>About the data used in <%= @project.title %></h3>
-                <%= mkdn @project.data %>
-            </div>
-        <% end -%>
-        <% unless @project.ideas.nil? or @project.ideas.empty? -%>
-            <div class="markdown_box project_ideas">
-                <h3>Ideas for taking <%= @project.title %> forwards</h3>
-                <%= mkdn @project.ideas %>
-            </div>
-        <% end -%>
-        <% unless @project.costs.nil? or @project.costs.empty? -%>
-            <div class="markdown_box project_costs">
-                <h3>Estimated costs to take <%= @project.title %> forwards</h3>
-                <%= mkdn @project.costs %>
-            </div>
-        <% end -%>
-    <!--</div>
-    <div class="clear"></div>-->
+      <% if project.code_url.present? %>
+        <li class="icon_code">Code URL: <%= link_to project.format_url(project.code_url), project.code_url %></li>
+      <% end %>
 
-</div>
+      <% if project.twitter.present? %>
+        <li class="icon_twitter">Twitter: <%= twitter_links_for(project) %></li>
+      <% end %>
+    </ul>
+  </nav>
+
+  <aside class="actions">
+    <%= link_to 'Edit this project', edit_event_project_path(event, project) %>
+  </aside>
+</section>
