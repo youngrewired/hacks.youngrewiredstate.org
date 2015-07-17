@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_filter :set_breadcrumbs
+  has_scope :tagged_with, as: :tag
 
   def index
   end
@@ -63,7 +64,7 @@ class ProjectsController < ApplicationController
   helper_method :project
 
   def projects
-    @projects ||= event.projects
+    @projects ||= apply_scopes(event.projects)
   end
   helper_method :projects
 

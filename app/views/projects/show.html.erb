@@ -20,7 +20,12 @@
   </div>
 
   <% if project.tags.any? %>
-    <p>Tags: <%= project.tag_list_with_hashes %></p>
+    <p>
+      Tags:
+      <% project.tags.each do |tag| %>
+        <%= link_to "##{tag.name}", event_projects_list_path(event, tag: tag.name) %>
+      <% end %>
+    </p>
   <% end %>
 
   <nav class="external-links">

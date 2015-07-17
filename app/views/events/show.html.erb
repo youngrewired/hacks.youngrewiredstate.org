@@ -11,6 +11,10 @@
     <%= render :partial => 'winners' %>
   <% end %>
 
+  <% if event.projects.tag_counts.any? %>
+    <%= render partial: 'projects/tag_cloud', locals: { projects: event.projects } %>
+  <% end %>
+
   <% if event.use_centres? %>
     <%= render :partial => 'centre_list' %>
   <% elsif event.winners.any? && event.projects.count > 30  %>

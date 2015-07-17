@@ -238,6 +238,7 @@ DEPENDENCIES
   devise (~> 3.0)
   factory_girl_rails
   formtastic (~> 2.2)
+  has_scope
   inherited_resources
   jquery-rails
   nested_form!

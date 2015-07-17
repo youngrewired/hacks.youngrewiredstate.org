@@ -33,6 +33,15 @@ header.global {
 
     font-weight: 600;
     text-transform: uppercase;
+
+    a {
+      color: $white;
+      text-decoration: none;
+
+      &:hover {
+        text-shadow: $primary-hover-colour 0px 0px 8px;
+      }
+    }
   }
 
 }

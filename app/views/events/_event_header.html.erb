@@ -1,2 +1,4 @@
 <% content_for(:title) { "#{event.title}" } %>
-<% content_for(:page_title) { "#{event.title}" } %>
+<% content_for(:page_title) do %>
+  <%= link_to event.title, event_path(event) %>
+<% end %>

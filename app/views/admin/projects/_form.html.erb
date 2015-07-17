@@ -13,16 +13,36 @@
   <% end %>
 
   <%= f.inputs "Description" do %>
-    <%= f.input :summary, :input_html => { :rows => 5 } %>
-    <%= f.input :description, :input_html => { :rows => 8 } %>
-    <%= f.input :ideas, :input_html => { :rows => 5 } %>
-    <%= f.input :data, :input_html => { :rows => 5 } %>
+    <%= f.input :tag_list_with_hashes %>
+
+    <% if f.object.summary.present? %>
+      <%= f.input :summary, :input_html => { :rows => 5 } %>
+    <% end %>
+
+    <% if f.object.description.present? %>
+      <%= f.input :description, :input_html => { :rows => 8 } %>
+    <% end %>
+
+    <% if f.object.ideas.present? %>
+      <%= f.input :ideas, :input_html => { :rows => 5 } %>
+    <% end %>
+
+    <% if f.object.data.present? %>
+      <%= f.input :data, :input_html => { :rows => 5 } %>
+    <% end %>
   <% end %>
 
   <%= f.inputs "Links" do %>
     <%= f.input :twitter %>
-    <%= f.input :github_url %>
-    <%= f.input :svn_url %>
+
+    <% if f.object.github_url.present? %>
+      <%= f.input :github_url %>
+    <% end %>
+
+    <% if f.object.svn_url.present? %>
+      <%= f.input :svn_url %>
+    <% end %>
+    
     <%= f.input :code_url %>
   <% end %>
 

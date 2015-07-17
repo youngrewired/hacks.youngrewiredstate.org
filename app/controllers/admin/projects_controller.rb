@@ -37,8 +37,8 @@ private
   def project_params
     params.fetch(:project, {}).permit(:title, :team, :url, :secret, :image,
       :summary, :description, :ideas, :data, :twitter, :github_url, :svn_url,
-      :code_url, :awards_attributes, :centre, :centre_id, :slug,
-      awards_attributes: [:id, :award_category_id, :_destroy])
+      :code_url, :awards_attributes, :centre, :centre_id, :tag_list_with_hashes,
+      :slug, awards_attributes: [:id, :award_category_id, :_destroy])
   end
 
 end

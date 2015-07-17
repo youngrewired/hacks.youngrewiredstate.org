@@ -17,6 +17,7 @@ gem "paperclip"
 
 gem 'paper_trail', '~> 3.0.3'
 gem 'acts-as-taggable-on', '~> 3.4'
+gem 'has_scope'
 
 gem "devise", "~> 3.0"
 gem "inherited_resources"

@@ -1,5 +1,11 @@
 <%= render partial: 'events/event_header' %>
 
+<% if params[:tag].present? %>
+  <header class="filter">
+    <h1>Projects tagged with #<%= params[:tag] %></h1>
+  </header>
+<% end %>
+
 <section class="projects">
   <%= render partial: 'project_list' %>
 </section>

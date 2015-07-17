@@ -2,6 +2,10 @@ section.projects {
   @include wrap;
 }
 
+header.filter {
+  @include wrap;
+}
+
 .project-list {
   @include grouped-list;
 }
