@@ -13,10 +13,7 @@ class Project < ActiveRecord::Base
 
   has_attached_file( :image, Rails.application.config.attachment_settings.merge({
     :styles => {
-      :full => ["1080x640#", :jpg],
-      :project => ["540x320#", :jpg],
-      :mini => ["270x160#", :jpg],
-      :thumb => ["140x83#", :jpg]
+      :full => ["2160x1280#", :jpg],
     }
   }) )
 
@@ -34,11 +31,12 @@ class Project < ActiveRecord::Base
   before_validation :create_slug, :if => proc { self.slug.blank? and ! self.title.blank? }
 
   validates :title, :team, :description, :presence => true
-  validates :summary, :presence => true, :length => { :maximum => 180 }
-  validates :slug, :uniqueness => { :case_sensitive => false }
-  validates :secret, :presence => true, :on => :create
-  validates :url, :code_url, :github_url, :svn_url, :format => { :with => URI::regexp, :allow_blank => true }
   validates :centre, :presence => true, :if => proc { |a| a.event.use_centres == true }
+  validates :secret, :presence => true, :on => :create
+
+  validates :url, :code_url, :github_url, :svn_url, :format => { :with => URI::regexp, :allow_blank => true }
+
+  validates :slug, :uniqueness => { :case_sensitive => false }
   validate :ensure_project_creation_is_enabled, :on => :create
 
   validates_attachment :image, presence: true,
@@ -46,14 +44,14 @@ class Project < ActiveRecord::Base
                                  content_type: ["image/jpeg", "image/gif", "image/png"]
                                },
                                size: {
-                                 less_than: 1.megabyte,
+                                 less_than: 5.megabytes,
                                }
 
   def update_attributes_with_secret(submitted_secret, attributes)
     if valid_secret?(submitted_secret)
       update_attributes(attributes)
     else
-      self.errors.add(:secret, 'is not correct')
+      self.errors.add(:submitted_secret, 'is not correct')
       return false
     end
   end

@@ -63,20 +63,6 @@ RSpec.describe Project do
         expect(project).to_not be_valid
       end
 
-      it "can't be created without a summary" do
-        valid_attributes.merge!(summary: nil)
-        project = event.projects.build(valid_attributes)
-
-        expect(project).to_not be_valid
-      end
-
-      it "can't be created with a summary longer than 180 characters" do
-        valid_attributes.merge!(summary: "test".ljust(181))
-        project = event.projects.build(valid_attributes)
-
-        expect(project).to_not be_valid
-      end
-
       it "can't be created without a description" do
         valid_attributes.merge!(description: nil)
         project = event.projects.build(valid_attributes)
@@ -130,27 +116,27 @@ RSpec.describe Project do
       { title: 'updated title' }
     }
 
-    it 'updates attributes given the valid secret' do
+    it 'updates attributes given the valid submitted secret' do
       project.update_attributes_with_secret(project.secret, attributes)
       project.reload
 
       expect(project.title).to eq(attributes[:title])
     end
 
-    it 'does not update attributes given an invalid secret' do
+    it 'does not update attributes given an invalid submitted secret' do
       expect(
         project.update_attributes_with_secret('not the secret', attributes)
       ).to eq(false)
 
-      expect(project.errors).to have_key(:secret)
+      expect(project.errors).to have_key(:submitted_secret)
     end
 
-    it 'does not update attributes given a blank secret' do
+    it 'does not update attributes given a blank submitted secret' do
       expect(
         project.update_attributes_with_secret('', attributes)
       ).to eq(false)
 
-      expect(project.errors).to have_key(:secret)
+      expect(project.errors).to have_key(:submitted_secret)
     end
   end
 

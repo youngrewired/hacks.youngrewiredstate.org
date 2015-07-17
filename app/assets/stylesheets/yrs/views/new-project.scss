@@ -1,0 +1,15 @@
+.new-project {
+  @include wrap;
+
+  h1 {
+    text-align: center;
+  }
+
+  p.introduction {
+    @include media-down(tablet) {
+      padding: 0 20%;
+      text-align: center;
+      line-height: 1.3;
+    }
+  }
+}

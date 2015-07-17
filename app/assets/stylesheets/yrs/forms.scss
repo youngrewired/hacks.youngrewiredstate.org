@@ -1,0 +1,72 @@
+.formtastic {
+  .inputs {
+    margin: 30px 0;
+
+    .inline-hints {
+      margin-left: 0;
+    }
+  }
+
+  legend {
+    margin: 0 0 20px;
+    font-weight: 600;
+    font-size: 19px;
+
+    @include media-down(tablet) {
+      font-size: 27px;
+    }
+  }
+
+  .input {
+    .label {
+      display: block;
+      width: 100%;
+      margin: 0 0 8px;
+    }
+  }
+
+  .stringish, .text, .select {
+    input, textarea, select {
+      width: 100%;
+      font-size: 19px;
+      font-family: $body-font-stack;
+      padding: 6px;
+      border: 1px solid #aaa;
+
+      @include media-down(tablet) {
+        font-size: 26px;
+        padding: 8px;
+      }
+    }
+
+    &.error {
+      input, textarea, select {
+        border-color: $primary-colour;
+        border-width: 2px;
+      }
+    }
+  }
+
+  .text textarea {
+    font-size: 16px;
+    height: 200px;
+    max-height: 500px;
+    resize: vertical;
+  }
+
+  .inline-errors {
+    margin-left: 0;
+  }
+
+  .actions {
+    padding-left: 0;
+
+    button {
+      @include button(medium);
+    }
+    a {
+      display: inline-block;
+      margin: 0 25px;
+    }
+  }
+}

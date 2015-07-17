@@ -23,8 +23,11 @@ section.project {
 
   img {
     margin: 30px 0;
-
     max-width: 100%;
+
+    @include media-down(tablet) {
+      max-width: 1080px;
+    }
   }
 
   .description {

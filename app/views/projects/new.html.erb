@@ -1,13 +1,12 @@
-<% content_for(:title) { "New project - #{@event.title}" } %>
+<% content_for(:title) { "Submit your project - " } %>
+<%= render partial: 'events/event_header' %>
 
-<div id="project_form">
-    <h1>New project</h1>
+<section class="new-project">
+  <h1>Submit your project</h1>
 
-    <p>You can add your project created at <strong><%= @event.title %></strong> below. Fields marked with a asterisk <span class="required">*</span> are required.</p>
+  <p class="introduction">
+    To submit your project, you'll need to tell us about your team and what you've made. We'll create a page for it on the event website.
+  </p>
 
-    <%= form_for [event,project] do |f| %>
-
-        <%= render :partial => 'form', :locals => { :f => f } %>
-
-    <% end %>
-</div>
+  <%= render partial: 'form' %>
+</section>

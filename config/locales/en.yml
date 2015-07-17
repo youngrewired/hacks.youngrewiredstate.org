@@ -1,14 +1,41 @@
 en:
   activerecord:
     attributes:
-      project:   
+      project:
         description: "Project description"
         team: "Project team"
         title: "Project title"
         url: "Project URL"
         code_url: "Code URL"
-        github_url: "GitHub URL"  
-        image: "Screenshot"          
+        github_url: "GitHub URL"
+        image: "Screenshot"
         svn_url: "SVN URL"
         secret: "Project password"
         my_secret: "Password"
+  formtastic:
+    labels:
+      project:
+        team: Who's in your team?
+        centre: Which centre are you at?
+        title: What's the name of your project?
+        description: What does your project do? How did you make it? What data does it use?
+        url: If your project is online, what's the link to it?
+        code_url: Have you uploaded your code to a website like GitHub? If so, add the link to it here.
+        twitter: If your team has Twitter accounts, what's their @usernames?
+        image: Take a screenshot of your project, and upload it here
+        secret: Choose a secret word to protect your project
+        submitted_secret: Enter the secret word you chose when you submitted your project
+    placeholders:
+      project:
+        twitter: eg. @youngrewired, @rewiredstate
+        url: http://
+        code_url: http://
+    hints:
+      project:
+        image: "Your screenshot must be a PNG, GIF or JPG, and less than 5 megabytes. The best sizes are 1080x640 or 2160x1280."
+        secret: You'll need to remember your secret word to make changes to your project.
+        submitted_secret: If you can't remember it, you'll need to contact the YRS team.
+    actions:
+      project:
+        create: "Submit my project"
+        update: "Save changes to my project"
