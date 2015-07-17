@@ -1,6 +1,8 @@
 <% content_for(:title) { "Hacks" } %>
 
-<h1>Hacks</h1>
+<h1><%= event.title %></h1>
+
+<p><%= link_to "Edit event details", edit_admin_event_path(event) %></p>
 
 <table>
   <tbody>

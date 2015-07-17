@@ -17,6 +17,12 @@
     }
   }
 
+  .boolean {
+    label {
+      padding-left: 0;
+    }
+  }
+
   .input {
     .label {
       display: block;
@@ -67,6 +73,24 @@
     a {
       display: inline-block;
       margin: 0 25px;
+    }
+  }
+
+  &.admin-form {
+    .stringish, .text, .select {
+      input, textarea, select {
+        @include media-down(tablet) {
+          font-size: 13px;
+        }
+      }
+    }
+
+    .inputs {
+      margin: 15px 0;
+    }
+
+    .inline-hints {
+      font-size: 14px;
     }
   }
 }

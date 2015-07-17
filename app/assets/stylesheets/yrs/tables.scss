@@ -1,0 +1,22 @@
+table {
+  width: 100%;
+  font-size: 15px;
+  margin: 25px 0;
+
+  td, th {
+  }
+  td {
+    border: 1px solid #ddd;
+    padding: 6px;
+
+    &.slug {
+      font-family: monospace;
+    }
+  }
+  th {
+    background-color: $primary-colour;
+    color: #fff;
+    font-weight: 600;
+    padding: 10px;
+  }
+}

@@ -1,4 +1,4 @@
-<%= semantic_nested_form_for [:admin, event] do |f| %>
+<%= semantic_nested_form_for [:admin, event], html: { class: 'admin-form' } do |f| %>
   <%= f.semantic_errors %>
 
   <%= f.inputs do %>
@@ -10,7 +10,7 @@
   <% end %>
 
   <%= f.inputs do %>
-    <%= f.input :enable_project_creation, :label => "Allow new hacks to be created?" %>
+    <%= f.input :enable_project_creation, :label => "Allow projects to be submitted and edited?" %>
   <% end %>
 
   <% unless event.new_record? or !event.use_centres %>

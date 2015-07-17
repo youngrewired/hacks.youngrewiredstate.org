@@ -1,5 +1,6 @@
 <% content_for(:title) { "Edit #{project.title}" } %>
 
-<h1>Edit <%= project.title %></h1>
+<h1><%= event.title %></h1>
+<h2>Editing project: <%= project.title %></h2>
 
 <%= render :partial => "form" %>

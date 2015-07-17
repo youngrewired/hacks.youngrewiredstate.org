@@ -1,4 +1,4 @@
-<%= semantic_nested_form_for([:admin, event, project]) do |f| %>
+<%= semantic_nested_form_for([:admin, event, project], html: { class: 'admin-form' }) do |f| %>
   <%= f.semantic_errors %>
 
   <%= f.inputs "Basic Info" do %>
@@ -42,7 +42,7 @@
     <% if f.object.svn_url.present? %>
       <%= f.input :svn_url %>
     <% end %>
-    
+
     <%= f.input :code_url %>
   <% end %>
 
