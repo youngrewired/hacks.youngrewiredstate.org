@@ -16,8 +16,7 @@ gem "rdiscount", "~> 1.6.8"
 gem "paperclip"
 
 gem 'paper_trail', '~> 3.0.3'
-
-# admin
+gem 'acts-as-taggable-on', '~> 3.4'
 
 gem "devise", "~> 3.0"
 gem "inherited_resources"

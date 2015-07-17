@@ -4,6 +4,8 @@ class Project < ActiveRecord::Base
 
   has_paper_trail
 
+  acts_as_ordered_taggable
+
   default_scope -> { order('title ASC') }
 
   has_many :awards
@@ -63,6 +65,15 @@ class Project < ActiveRecord::Base
   def format_url(url)
     url_parts = url.match(/https?:\/\/(.*)/i)
     url_parts ? url_parts[1].sub(/\/$/i,'') : url
+  end
+
+  def tag_list_with_hashes
+    @tags_list_cache || tags.map {|t| "##{t.name}" }.join(" ")
+  end
+
+  def tag_list_with_hashes=(value)
+    @tags_list_cache = value
+    self.tag_list = value
   end
 
   def set_filename

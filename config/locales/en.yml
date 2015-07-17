@@ -12,6 +12,7 @@ en:
         svn_url: "SVN URL"
         secret: "Project password"
         my_secret: "Password"
+        tag_list_with_hashes: "Tags"
   formtastic:
     labels:
       project:
@@ -25,11 +26,13 @@ en:
         image: Take a screenshot of your project, and upload it here
         secret: Choose a secret word to protect your project
         submitted_secret: Enter the secret word you chose when you submitted your project
+        tag_list_with_hashes: "Add some #tags to your project to make it easier to find."
     placeholders:
       project:
         twitter: eg. @youngrewired, @rewiredstate
         url: http://
         code_url: http://
+        tag_list_with_hashes: "eg. #javascript #policedata #transport"
     hints:
       project:
         image: "Your screenshot must be a PNG, GIF or JPG, and less than 5 megabytes. The best sizes are 1080x640 or 2160x1280."

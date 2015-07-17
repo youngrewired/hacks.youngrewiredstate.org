@@ -3,13 +3,13 @@ module ProjectsHelper
 
   def twitter_links_for(project)
     output = []
-    project.twitter.split(/, ?/).take(8).each do |t| 
+    project.twitter.split(/, ?/).take(8).each do |t|
       clean_user = sanitize t.strip.sub('@','')
-      output << link_to("@#{clean_user}", "http://twitter.com/#{clean_user}") 
+      output << link_to("@#{clean_user}", "http://twitter.com/#{clean_user}")
     end
     output.join(', ').html_safe
-  end           
-  
+  end
+
   def no_picture_message
     ['A picture is worth a thousand words.','Every picture tells a story.'].sample
   end
@@ -19,5 +19,9 @@ module ProjectsHelper
       return m[2]
     end
     return url
+  end
+
+  def suggested_tags
+    (event.projects.tag_counts_on(:tags) - project.tags)[0..10]
   end
 end

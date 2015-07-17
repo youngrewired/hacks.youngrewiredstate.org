@@ -14,6 +14,9 @@
 
     <%= f.input :url %>
     <%= f.input :code_url %>
+
+    <%= f.input :tag_list_with_hashes, input_html: { data: { module: 'suggested-tags' }} %>
+    <%= render partial: 'suggested_tags' %>
   <% end %>
 
   <%= f.inputs "Upload an image" do %>
@@ -33,3 +36,14 @@
   <% end %>
 
 <% end %>
+
+<script type="text/javascript">
+<!--
+$(function(){
+  new Hacks.SuggestedTags({
+    $el: $('.suggested-tags'),
+    $inputEl: $('input[data-module="suggested-tags"]')
+  });
+});
+-->
+</script>

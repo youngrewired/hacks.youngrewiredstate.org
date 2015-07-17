@@ -9,9 +9,7 @@
     <%= f.input :slug, :input_html => { :disabled => true } %>
     <%= f.input :team %>
     <%= f.input :url %>
-    <% if ! event.secret.present? %>
-      <%= f.input :secret %>
-    <% end %>
+    <%= f.input :secret %>
   <% end %>
 
   <%= f.inputs "Description" do %>

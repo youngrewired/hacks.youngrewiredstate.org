@@ -1,0 +1,50 @@
+.project-form {
+  @include wrap;
+
+  h1 {
+    text-align: center;
+  }
+
+  p.introduction {
+    @include media-down(tablet) {
+      padding: 0 20%;
+      text-align: center;
+      line-height: 1.3;
+    }
+  }
+
+  .suggested-tags {
+    margin: -20px auto 20px;
+    font-size: 18px;
+
+    ul {
+      display: inline;
+      padding-left: 10px;
+    }
+    li {
+      display: inline;
+      padding-right: 5px;
+
+      span {
+        display: inline-block;
+        border: 1px solid $primary-colour;
+        color: $primary-colour;
+
+        padding: 6px 8px;
+        font-size: 17px;
+        border-radius: 4px;
+
+        &:hover {
+          cursor: pointer;
+          background: $primary-colour;
+          color: #fff;
+        }
+
+        &:before {
+          content: "+";
+          padding-right: 2px;
+        }
+      }
+    }
+  }
+}

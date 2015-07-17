@@ -20,7 +20,7 @@ Projects::Application.routes.draw do
   post 'events/:event_id/projects', to: 'projects#create', as: :event_projects
 
   resources :events, only: [:index,:show] do
-    resources :projects, except: [:index, :destroy], path: ''
+    resources :projects, except: [:index, :destroy], path: '', path_names: { new: 'submit' }
   end
 
   root :to => 'events#index'

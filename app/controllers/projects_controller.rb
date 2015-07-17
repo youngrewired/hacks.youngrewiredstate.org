@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    project.assign_attributes(project_params)
+    project.assign_attributes(project_params(:create))
 
     if project.save
       flash.notice = 'Your project has been created.'
@@ -80,9 +80,15 @@ class ProjectsController < ApplicationController
       end
     end
 
-    def project_params
-      params.require(:project).permit(:title, :team, :url, :secret,
-          :image, :summary, :description, :ideas, :data, :twitter, :github_url,
-          :svn_url, :code_url, :centre_id, :submitted_secret)
+    def project_params(action = nil)
+      attributes = [:title, :team, :url, :image, :description, :twitter,
+                    :github_url, :tag_list_with_hashes, :code_url, :centre_id,
+                    :submitted_secret]
+
+      if action == :create
+        attributes << :secret
+      end
+
+      params.require(:project).permit(*attributes)
     end
 end

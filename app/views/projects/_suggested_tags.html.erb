@@ -1,0 +1,10 @@
+<% if suggested_tags.any? %>
+  <aside class="suggested-tags">
+    Popular tags:
+    <ul>
+      <% suggested_tags.each do |tag| %>
+        <li><span class="tag">#<%= tag.name %></span></li>
+      <% end %>
+    </ul>
+  </aside>
+<% end %>
