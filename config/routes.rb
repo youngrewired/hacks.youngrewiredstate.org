@@ -11,8 +11,9 @@ Projects::Application.routes.draw do
       resources :award_categories, :except => :show
       resources :projects, :except => :show
     end
+    resources :tags, except: [:show, :edit, :update]
 
-    root :to => 'events#index'
+    root :to => 'root#index'
   end
 
   get 'events/:event_id/centres/:id' => "centres#show", :as => :event_centre
