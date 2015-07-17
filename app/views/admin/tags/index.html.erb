@@ -1,0 +1,14 @@
+<h1>Manage tags</h1>
+
+<table>
+  <tbody>
+    <thead>
+      <tr>
+        <th scope="col">Tag name</th>
+        <th scope="col"># projects</th>
+        <th></th>
+      </tr>
+    </thead>
+    <%= render :partial => "tag", :collection => tags %>
+  </tbody>
+</table>

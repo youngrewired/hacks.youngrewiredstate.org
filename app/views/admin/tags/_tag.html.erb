@@ -1,0 +1,5 @@
+<tr>
+  <td><%= tag.name %></td>
+  <td><%= pluralize tag.taggings.count, 'project' %></td>
+  <td><%= link_to "Delete", admin_tag_path(tag), method: :delete, data: { confirm: "You are deleting the tag ##{tag.name}. This will be permanenly removed from any projects its currently tagged to. Are you sure you wish to continue?"} %></td>
+</tr>
