@@ -7,6 +7,7 @@ class Admin::ProjectsController < Admin::BaseController
 
   def update
     if project.update_attributes(project_params)
+      flash.notice = "#{project.title} has been saved."
       redirect_to admin_event_projects_path(event)
     else
       render action: :edit
@@ -15,6 +16,8 @@ class Admin::ProjectsController < Admin::BaseController
 
   def destroy
     project.destroy
+
+    flash.notice = "#{project.title} has been deleted."
     redirect_to admin_event_projects_path
   end
 

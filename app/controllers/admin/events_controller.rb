@@ -7,6 +7,7 @@ class Admin::EventsController < Admin::BaseController
     event.assign_attributes(event_params)
 
     if event.save
+      flash.notice = "#{event.title} has been created."
       redirect_to admin_events_path
     else
       render action: :new
@@ -15,6 +16,7 @@ class Admin::EventsController < Admin::BaseController
 
   def update
     if event.update_attributes(event_params)
+      flash.notice = "#{event.title} has been saved."
       redirect_to admin_events_path
     else
       render action: :edit
@@ -23,6 +25,8 @@ class Admin::EventsController < Admin::BaseController
 
   def destroy
     event.destroy
+
+    flash.notice = "#{event.title} has been deleted."
     redirect_to admin_events_path
   end
 
