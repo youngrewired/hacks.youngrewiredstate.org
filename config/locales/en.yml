@@ -39,7 +39,7 @@ en:
         secret: You'll need to remember your secret word to make changes to your project.
         submitted_secret: If you can't remember it, you'll need to contact the YRS team.
       event:
-        slug: Good slugs are lowercase and use dashes to separate words. This can't be changed after you've created the event.
+        slug: Good slugs are lowercase and use dashes to separate words. This can't be changed after you've created it.
         use_centres: This can't be changed after you've created the event.
         enable_project_creation: Enable this during the event, and disable it after its finished.
     actions:

@@ -77,6 +77,12 @@
   }
 
   &.admin-form {
+    .actions {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+    }
+
     .stringish, .text, .select {
       input, textarea, select {
         @include media-down(tablet) {
@@ -92,5 +98,41 @@
     .inline-hints {
       font-size: 14px;
     }
+
+    .fields {
+      background: #eee;
+      padding: 10px;
+      margin-bottom: 5px;
+
+      .input {
+        margin: 0;
+        padding: 0;
+
+        label {
+          font-size: 13px;
+          font-weight: 600;
+          width: 25%;
+        }
+        input, select {
+          width: 75%;
+        }
+
+        &.boolean, .inline-hints {
+          label {
+            width: 100%;
+          }
+          input {
+            width: auto;
+          }
+
+          padding-left: 25%;
+          width: 75%;
+        }
+      }
+    }
+    .add_nested_fields, .remove_nested_fields {
+      @include button(small);
+    }
+    
   }
 }
