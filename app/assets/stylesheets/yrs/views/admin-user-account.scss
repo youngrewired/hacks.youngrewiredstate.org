@@ -1,0 +1,46 @@
+.user_account {
+  @include wrap;
+
+  h2 {
+    @extend h1;
+  }
+
+  form {
+    margin: 20px 0 35px;
+
+    input {
+      width: 100%;
+      font-size: 13px;
+      font-family: $body-font-stack;
+      padding: 6px;
+      border: 1px solid #aaa;
+      margin-top: 5px;
+    }
+    div {
+      margin: 10px 0;
+    }
+    input[type=submit] {
+      @include button(medium);
+      width: auto;
+    }
+
+    #error_explanation {
+      border: 2px solid $primary-colour;
+      margin-bottom: 25px;
+      padding: 5px 10px 10px;
+
+      h1 {
+        @extend h3;
+      }
+    }
+  }
+
+  h3 {
+    font-weight: 600;
+  }
+
+  p {
+    padding-bottom: 20px;
+  }
+
+}
