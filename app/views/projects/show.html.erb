@@ -19,6 +19,10 @@
     <%= mkdn project.description %>
   </div>
 
+  <% if project.tags.any? %>
+    <p>Tags: <%= project.tag_list_with_hashes %></p>
+  <% end %>
+
   <nav class="external-links">
     <ul>
       <% if project.url.present? %>
