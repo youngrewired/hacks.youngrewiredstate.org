@@ -22,6 +22,6 @@ module ProjectsHelper
   end
 
   def suggested_tags
-    (event.projects.tag_counts_on(:tags) - project.tags)[0..10]
+    (event.projects.top_tags(12) - project.tags)[0..8]
   end
 end

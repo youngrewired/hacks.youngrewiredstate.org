@@ -15,24 +15,35 @@
 
   .suggested-tags {
     margin: -20px auto 20px;
-    font-size: 18px;
+    font-size: 15px;
+    vertical-align: middle;
+
+    @include media-down(tablet) {
+      font-size: 18px;
+    }
 
     ul {
       display: inline;
       padding-left: 10px;
     }
     li {
-      display: inline;
+      display: inline-block;
       padding-right: 5px;
+      margin-bottom: 5px;
+      vertical-align: middle;
 
       span {
         display: inline-block;
         border: 1px solid $primary-colour;
         color: $primary-colour;
 
-        padding: 6px 8px;
-        font-size: 17px;
+        padding: 6px 8px 6px 5px;
+        font-size: 13px;
         border-radius: 4px;
+
+        @include media-down(tablet) {
+          font-size: 17px;
+        }
 
         &:hover {
           cursor: pointer;
@@ -42,7 +53,7 @@
 
         &:before {
           content: "+";
-          padding-right: 2px;
+          padding-right: 4px;
         }
       }
     }
