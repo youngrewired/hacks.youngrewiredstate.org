@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+ruby '2.2.2'
 
 gem 'rails', '~> 4.2.3'
 gem 'puma'
@@ -32,4 +33,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.1'
   gem 'capybara'
   gem 'poltergeist'
+end
+
+group :production do
+  gem 'rails_12factor'
 end
