@@ -61,6 +61,7 @@ GEM
       xpath (~> 2.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
+    cliver (0.3.2)
     cocaine (0.5.7)
       climate_control (>= 0.0.3, < 1.0)
     comma (3.0.6)
@@ -137,6 +138,11 @@ GEM
       mime-types
       mimemagic (= 0.3.0)
     pg (0.18.2)
+    poltergeist (1.6.0)
+      capybara (~> 2.1)
+      cliver (~> 0.3.1)
+      multi_json (~> 1.0)
+      websocket-driver (>= 0.2.0)
     puma (2.11.3)
       rack (>= 1.1, < 2.0)
     rabl (0.11.6)
@@ -215,6 +221,9 @@ GEM
     uuidtools (2.1.5)
     warden (1.2.3)
       rack (>= 1.0)
+    websocket-driver (0.6.2)
+      websocket-extensions (>= 0.1.0)
+    websocket-extensions (0.1.2)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -239,6 +248,7 @@ DEPENDENCIES
   paper_trail (~> 3.0.3)
   paperclip
   pg
+  poltergeist
   puma
   rabl
   rails (~> 4.2.3)
