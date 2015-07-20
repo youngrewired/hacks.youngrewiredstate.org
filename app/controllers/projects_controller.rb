@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
     project.assign_attributes(project_params(:create))
 
     if project.save
-      flash.notice = 'Your project has been created.'
+      flash.notice = 'Thanks for submitting your project.'
       redirect_to event_project_url(event, project)
     else
       breadcrumbs.add "New project", new_event_project_path(event)
@@ -41,7 +41,7 @@ class ProjectsController < ApplicationController
     submitted_secret = project_params.delete(:submitted_secret)
 
     if project.update_attributes_with_secret(submitted_secret, project_params)
-      flash.notice = 'Your project has been updated.'
+      flash.notice = 'Your changes have been saved.'
       redirect_to event_project_url(event, project)
     else
       breadcrumbs.add "Edit project", edit_event_project_path(event, project)
