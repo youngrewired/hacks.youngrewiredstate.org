@@ -1,10 +1,14 @@
-# Rewired State Hacks [![Build Status](https://travis-ci.org/rewiredstate/hacks.png?branch=master)](https://travis-ci.org/rewiredstate/hacks)
+# Young Rewired State Hacks [![Build Status](https://travis-ci.org/rewiredstate/hacks.png?branch=master)](https://travis-ci.org/rewiredstate/hacks)
 
-A database for all hacks created at Rewired State events.
+A database for hacks and creations at Young Rewired State events.
+
+This is a fork of [the existing app for Rewired State projects](https://github.com/rewiredstate/hacks).
+It's a Rails 4 app, using PostgreSQL to store data.
 
 ## Configuration
 
-Screenshot uploads in the production environment are using Amazon S3 at present, so you'll need to set your credentials and bucket in the environment:
+Screenshot uploads in the production environment are using Amazon S3 at present,
+so you'll need to set your credentials and bucket in the environment:
 
     export S3_KEY=<key>
     export S3_SECRET=<secret>
@@ -19,17 +23,20 @@ You can create an admin user with the Rake task:
 
 ## Getting Started
 
-The easiest way to run the application in development is with Unicorn.
+The easiest way to run the application in development.
 
     bundle install
-    bundle exec rake db:setup
-    bundle exec unicorn -p 4567
+    bin/rake db:setup
+    bin/rails s
 
 ## Testing
 
-We're using RSpec for model and controller testing. To run all the tests:
+We're using RSpec for testing. To run all the tests:
 
-    bundle exec rake
+    bin/rake
+
+You'll need to ensure you have PhantomJS installed for the feature specs to run.
+If you have Homebrew installed, `brew install phantomjs` will set it up for you.
 
 ## Colophon
 
