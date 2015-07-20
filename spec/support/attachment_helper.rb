@@ -7,8 +7,12 @@ module AttachmentHelper
     allow(Project).to receive(:has_attached_file).and_return(true)
   end
 
+  def path_to_stub_uploaded_image(filename = 'image.jpg')
+    "spec/fixtures/paperclip/#{filename}"
+  end
+
   def stub_uploaded_image(filename = 'image.jpg', filetype = 'image/jpeg')
-    Rack::Test::UploadedFile.new("spec/fixtures/paperclip/#{filename}", filetype)
+    Rack::Test::UploadedFile.new(path_to_stub_uploaded_image(filename), filetype)
   end
 end
 
