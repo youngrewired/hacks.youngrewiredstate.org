@@ -17,16 +17,16 @@ ActiveRecord::Schema.define(version: 20150717112859) do
   enable_extension "plpgsql"
 
   create_table "admins", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      default: 0
+    t.integer  "sign_in_count",          default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -35,14 +35,14 @@ ActiveRecord::Schema.define(version: 20150717112859) do
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
   create_table "award_categories", force: :cascade do |t|
-    t.string   "title",       limit: 255
+    t.string   "title"
     t.text     "description"
     t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "format",      limit: 255
-    t.string   "level",       limit: 255
-    t.boolean  "featured",                default: true
+    t.string   "format"
+    t.string   "level"
+    t.boolean  "featured",    default: true
   end
 
   create_table "awards", force: :cascade do |t|
@@ -53,49 +53,49 @@ ActiveRecord::Schema.define(version: 20150717112859) do
   end
 
   create_table "centres", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "slug",       limit: 255
+    t.string   "name"
+    t.string   "slug"
     t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "events", force: :cascade do |t|
-    t.string   "title",                   limit: 255
-    t.string   "slug",                    limit: 255
-    t.string   "hashtag",                 limit: 255
+    t.string   "title"
+    t.string   "slug"
+    t.string   "hashtag"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "secret",                  limit: 255
-    t.boolean  "active",                              default: true
-    t.boolean  "use_centres",                         default: false
-    t.string   "url",                     limit: 255
-    t.boolean  "enable_project_creation",             default: true
+    t.string   "secret"
+    t.boolean  "active",                  default: true
+    t.boolean  "use_centres",             default: false
+    t.string   "url"
+    t.boolean  "enable_project_creation", default: true
     t.date     "start_date"
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string   "title",              limit: 255
-    t.string   "slug",               limit: 255
+    t.string   "title"
+    t.string   "slug"
     t.integer  "event_id"
     t.text     "description"
-    t.string   "team",               limit: 255
-    t.string   "url",                limit: 255
+    t.string   "team"
+    t.string   "url"
     t.text     "ideas"
     t.text     "costs"
     t.text     "data"
-    t.string   "twitter",            limit: 255
-    t.string   "github_url",         limit: 255
-    t.string   "svn_url",            limit: 255
-    t.string   "code_url",           limit: 255
-    t.string   "secret",             limit: 255
+    t.string   "twitter"
+    t.string   "github_url"
+    t.string   "svn_url"
+    t.string   "code_url"
+    t.string   "secret"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image_file_name",    limit: 255
-    t.string   "image_content_type", limit: 255
+    t.string   "image_file_name"
+    t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "summary",            limit: 255
+    t.string   "summary"
     t.integer  "centre_id"
   end
 
@@ -120,10 +120,10 @@ ActiveRecord::Schema.define(version: 20150717112859) do
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "versions", force: :cascade do |t|
-    t.string   "item_type",  limit: 255, null: false
-    t.integer  "item_id",                null: false
-    t.string   "event",      limit: 255, null: false
-    t.string   "whodunnit",  limit: 255
+    t.string   "item_type",  null: false
+    t.integer  "item_id",    null: false
+    t.string   "event",      null: false
+    t.string   "whodunnit"
     t.text     "object"
     t.datetime "created_at"
   end
