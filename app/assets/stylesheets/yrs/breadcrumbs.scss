@@ -43,6 +43,10 @@
       &:first-of-type:before {
         content: none;
       }
+
+      &:before {
+        padding-left: 5px;
+      }
     }
   }
 }
