@@ -1,4 +1,4 @@
-# Young Rewired State Hacks [![Build Status](https://travis-ci.org/rewiredstate/hacks.png?branch=master)](https://travis-ci.org/rewiredstate/hacks)
+# Young Rewired State Hacks [![Build Status](https://travis-ci.org/youngrewired/yrs-hacks.png?branch=master)](https://travis-ci.org/youngrewired/yrs-hacks)
 
 A database for hacks and creations at Young Rewired State events.
 
