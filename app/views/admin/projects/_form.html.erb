@@ -4,7 +4,7 @@
   <%= f.inputs "Basic Info" do %>
     <%= f.input :title %>
     <% if event.use_centres %>
-      <%= f.input :centre %>
+      <%= f.input :centre, collection: event.centres %>
     <% end %>
     <%= f.input :slug, :input_html => { :disabled => true } %>
     <%= f.input :team %>

@@ -2,7 +2,7 @@
 
   <%= f.inputs "About you" do %>
     <% if event.use_centres? %>
-      <%= f.input :centre %>
+      <%= f.input :centre, collection: event.centres %>
     <% end %>
     <%= f.input :team %>
     <%= f.input :twitter %>
