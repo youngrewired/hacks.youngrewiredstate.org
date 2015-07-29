@@ -13,5 +13,17 @@
     <% end %>
   </p>
 
+  <% if event.require_review? %>
+    <div class="alert">
+      <p>
+        If you've already submitted your project but it hasn't appeared on the site yet,
+        don't worry - it may take a while for your project to be reviewed.
+      </p>
+      <p>
+        Please don't submit your project more than once.
+      </p>
+    </div>
+  <% end %>
+
   <%= render partial: 'form' %>
 </section>
