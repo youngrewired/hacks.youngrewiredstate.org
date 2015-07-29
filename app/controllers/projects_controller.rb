@@ -56,7 +56,7 @@ class ProjectsController < ApplicationController
 
   def project
     if params[:id]
-      @project ||= event.projects.find_by_slug(params[:id]) || not_found
+      @project ||= event.visible_projects.find_by_slug(params[:id]) || not_found
     else
       @project ||= Project.new(event: event)
     end
@@ -64,7 +64,7 @@ class ProjectsController < ApplicationController
   helper_method :project
 
   def projects
-    @projects ||= apply_scopes(event.projects)
+    @projects ||= apply_scopes(event.visbile_projects)
   end
   helper_method :projects
 

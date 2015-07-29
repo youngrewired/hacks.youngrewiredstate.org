@@ -22,6 +22,6 @@ module ProjectsHelper
   end
 
   def suggested_tags
-    (event.projects.top_tags(12) - project.tags)[0..8]
+    (event.visible_projects.top_tags(12) - project.tags)[0..8]
   end
 end

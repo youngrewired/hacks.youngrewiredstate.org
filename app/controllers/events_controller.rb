@@ -5,7 +5,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html
       format.json
-      format.csv { render :csv => event.projects }
+      format.csv { render :csv => event.visible_projects }
     end
   end
 
@@ -40,7 +40,7 @@ class EventsController < ApplicationController
   helper_method :event
 
   def projects
-    event.public_projects
+    event.visible_projects
   end
   helper_method :projects
 
