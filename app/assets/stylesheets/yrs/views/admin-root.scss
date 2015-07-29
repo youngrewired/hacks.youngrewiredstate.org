@@ -1,8 +1,12 @@
 .admin-root {
   @include wrap;
 
-  ul {
-    margin: 20px 0;
+  > h2 {
+    padding-top: 25px;
+  }
+
+  ul.actions {
+    margin: 0;;
 
     li {
       background: #eee;
@@ -33,6 +37,37 @@
         }
       }
     }
+  }
+
+  .active-events {
+    font-size: 17px;
+
+    li {
+      background:#eee;
+      display: block;
+      list-style: none;
+      padding: 15px;
+      margin: 0 0 3px;
+      position: relative;
+
+      h2 {
+        font-size: 19px;
+        font-weight: 600;
+        padding: 0 0 5px;
+      }
+    }
+
+    .quick-actions {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+
+      .quick-action {
+        @include button($size: medium);
+        display: inline-block;
+      }
+    }
+
   }
 
 }

@@ -15,6 +15,7 @@ class Event < ActiveRecord::Base
   validates :slug, :uniqueness => { :case_sensitive => false }
 
   scope :recent_first, -> { order("start_date desc") }
+  scope :active, -> { where(enable_project_creation: true) }
 
   def to_param
     self.slug

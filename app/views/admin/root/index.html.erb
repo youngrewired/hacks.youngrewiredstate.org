@@ -1,7 +1,30 @@
 <section class="admin-root">
   <h1>Admin control panel</h1>
 
-  <ul>
+  <% if active_events.any? %>
+    <nav class="active-events">
+      <h2>Currently active events</h2>
+      <ul>
+        <% active_events.each do |event| %>
+          <li>
+            <h2><%= event.title %></h2>
+            <p>Projects can be created and edited.</p>
+            <nav class="quick-actions">
+              <%= link_to 'Edit event', edit_admin_event_path(event), class: 'quick-action' %>
+              <% if event.require_review? %>
+                <%= link_to admin_event_unreviewed_projects_path(event), class: 'quick-action' do %>
+                  Review <%= pluralize(event.projects.unreviewed.count, 'project') %>
+                <% end %>
+              <% end %>
+            </nav>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+  <% end %>
+
+  <h2>Admin panel actions</h2>
+  <ul class="actions">
     <li><%= link_to "Manage events and projects", admin_events_path %></li>
     <li><%= link_to "Manage tags", admin_tags_path %></li>
     <li><%= link_to "Edit your account", edit_admin_registration_path %></li>
