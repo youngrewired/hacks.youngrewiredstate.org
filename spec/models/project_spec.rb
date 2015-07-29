@@ -28,13 +28,6 @@ RSpec.describe Project do
     end
 
     describe "given invalid attributes" do
-      it "can't be created if the event no longer allows new projects to be created" do
-        event = create(:event, enable_project_creation: false)
-        project = event.projects.build(valid_attributes)
-
-        expect(project).to_not be_valid
-      end
-
       it "can't be created with an empty project password" do
         valid_attributes.merge!(secret: nil)
         project = event.projects.build(valid_attributes)

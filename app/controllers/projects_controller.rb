@@ -1,16 +1,17 @@
 class ProjectsController < ApplicationController
+
+  class EventNotActive < StandardError; end
+
   before_filter :set_breadcrumbs
   has_scope :tagged_with, as: :tag
+
+  before_filter :assert_event_is_active, only: [:new, :create, :edit, :update]
+  rescue_from EventNotActive, with: :event_not_active
 
   def index
   end
 
   def new
-    unless event.enable_project_creation
-      flash.alert = 'Projects can no longer be created here for this event. Please get in touch if you\'d like to add a project here.'
-      redirect_to event_path(event)
-    end
-
     breadcrumbs.add "New project", new_event_project_path(event)
   end
 
@@ -84,6 +85,18 @@ class ProjectsController < ApplicationController
 
         breadcrumbs.add project.title, event_project_path(event, project)
       end
+    end
+
+    def assert_event_is_active
+      unless event.enable_project_creation?
+        raise EventNotActive
+      end
+    end
+
+    def event_not_active
+      flash.alert = 'Projects can no longer be created or edited for this event.
+        Please get in touch if you\'d like to add a project here.'
+      redirect_to event_path(event)
     end
 
     def project_params(action = nil)

@@ -41,7 +41,6 @@ class Project < ActiveRecord::Base
   validates :url, :code_url, :github_url, :svn_url, :format => { :with => URI::regexp, :allow_blank => true }
 
   validates :slug, :uniqueness => { :case_sensitive => false }
-  validate :ensure_project_creation_is_enabled, :on => :create
 
   validates_attachment :image, presence: true,
                                content_type: {
@@ -102,12 +101,6 @@ class Project < ActiveRecord::Base
     def create_slug
       existing_slugs = Project.all.select {|a| a.slug.match(/^#{self.title.parameterize}(\-[0-9]+)?$/)  }.size
       self.slug = (existing_slugs > 0 ? "#{self.title.parameterize}-#{existing_slugs+1}" : self.title.parameterize)
-    end
-
-    def ensure_project_creation_is_enabled
-      unless event.enable_project_creation
-        errors.add(:event, "no longer allows projects to be created")
-      end
     end
 
     def valid_secret?(submitted_secret)

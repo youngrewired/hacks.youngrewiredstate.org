@@ -9,9 +9,15 @@ FactoryGirl.define do
     sequence(:title) {|n| "Hack all the things ##{n}"}
     sequence(:slug) {|n| "hack-everything-#{n}"}
     start_date { Date.today }
+    enable_project_creation true
+    require_review false
 
     factory :event_with_centres do
       use_centres true
+    end
+
+    factory :inactive_event do
+      enable_project_creation false
     end
   end
 
