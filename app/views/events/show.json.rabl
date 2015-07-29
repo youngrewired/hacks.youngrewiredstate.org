@@ -3,7 +3,7 @@ object event
 attribute :title, :hashtag
 code(:url) {|e| event_url(e)}
 
-child :projects do
+child visible_projects: :projects do
   attributes :title, :team, :summary
 
   if event.use_centres
@@ -18,7 +18,7 @@ child :projects do
   end
 end
 
-child :centres do
+child :centres, object_root: false do
   attributes :name
   code(:url) {|c| event_centre_url(event, c.slug) }
   code(:count) {|c| c.projects.count }

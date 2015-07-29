@@ -3,8 +3,8 @@
 <section class="centre">
   <h1><%= centre.name %></h1>
 
-  <% if centre.projects.any? %>
-    <%= render partial: 'projects/project_list', locals: { projects: centre.projects } %>
+  <% if centre.visible_projects.any? %>
+    <%= render partial: 'projects/project_list', locals: { projects: centre.visible_projects } %>
   <% else %>
     <p>
       We don't have any projects yet.

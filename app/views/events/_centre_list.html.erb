@@ -1,11 +1,11 @@
 <section class="centres">
-  <h2><%= pluralize(event.projects.count, 'projects') %> from <%= pluralize(event.centres.count, 'centre') %></h2>
+  <h2><%= pluralize(projects.count, 'projects') %> from <%= pluralize(event.centres.count, 'centre') %></h2>
 
   <ul>
     <% event.centres.each do |centre| %>
       <li>
         <h3><%= link_to centre.name, event_centre_path(event, centre) %></h3>
-        <p><%= pluralize centre.projects.count, "projects" %></p>
+        <p><%= pluralize centre.visible_projects.count, "projects" %></p>
       </li>
     <% end %>
   </ul>

@@ -12,17 +12,17 @@
   <% end %>
 
   <% if event.projects.tag_counts.any? %>
-    <%= render partial: 'projects/tag_cloud', locals: { projects: event.projects } %>
+    <%= render partial: 'projects/tag_cloud', locals: { projects: projects } %>
   <% end %>
 
   <% if event.use_centres? %>
     <%= render :partial => 'centre_list' %>
-  <% elsif event.winners.any? && event.projects.count > 30  %>
+  <% elsif event.winners.any? && projects.count > 30  %>
     <div class="see-all">
-      <%= link_to "See all #{pluralize(event.projects.size, "project")} →", event_projects_list_path(event) %>
+      <%= link_to "See all #{pluralize(projects.size, "project")} →", event_projects_list_path(event) %>
     </div>
   <% else %>
-    <%= render partial: 'projects/project_list', locals: { projects: event.projects } %>
+    <%= render partial: 'projects/project_list', locals: { projects: projects } %>
   <% end %>
 
 </section>

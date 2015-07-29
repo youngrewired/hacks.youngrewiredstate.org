@@ -39,6 +39,11 @@ class EventsController < ApplicationController
   end
   helper_method :event
 
+  def projects
+    event.public_projects
+  end
+  helper_method :projects
+
 private
   def set_breadcrumbs
     if event.present?

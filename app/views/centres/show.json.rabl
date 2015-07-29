@@ -1,9 +1,9 @@
-object @centre
+object centre
 
 attribute :name
-code(:url) {|e| event_centre_url(event, @centre.slug)}
+code(:url) {|e| event_centre_url(event, centre.slug)}
 
-child :projects do
+child :visible_projects => :projects do
   attributes :title, :team, :summary
 
   if event.use_centres
