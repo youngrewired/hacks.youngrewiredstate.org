@@ -43,6 +43,14 @@ class Event < ActiveRecord::Base
     !self.secret.blank?
   end
 
+  def visible_projects
+    if require_review?
+      projects.reviewed
+    else
+      projects
+    end
+  end
+
   private
     def create_slug
       existing_slugs = Event.all.select {|a| a.slug.match(/^#{self.title.parameterize}(\-[0-9]+)?$/)  }.size

@@ -13,6 +13,14 @@ class Centre < ActiveRecord::Base
     slug
   end
 
+  def visible_projects
+    if event.require_review?
+      projects.reviewed
+    else
+      projects
+    end
+  end
+
   private
     def create_slug
       existing_slugs = event.centres.select {|a| a.slug.match(/^#{self.name.parameterize}(\-[0-9]+)?$/)  }.size
