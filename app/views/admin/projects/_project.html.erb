@@ -9,6 +9,15 @@
       <% end %>
     </ul>
   </td>
+  <% if event.require_review? %>
+  <td>
+    <% if project.reviewed? %>
+      Reviewed
+    <% else %>
+      Not reviewed
+    <% end %>
+  </td>
+  <% end %>
   <td><%= link_to "Edit", edit_admin_event_project_path(event, project) %></td>
   <td><%= link_to "Delete", admin_event_project_path(event, project), :method => "DELETE", data: { confirm: "You are deleting #{project.title} (#{project.slug}). This can't be reversed. Are you sure you want to continue?" } %></td>
 </tr>
