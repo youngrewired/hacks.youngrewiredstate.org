@@ -70,7 +70,7 @@ class ProjectsController < ApplicationController
   helper_method :project
 
   def projects
-    @projects ||= apply_scopes(event.visbile_projects)
+    @projects ||= apply_scopes(event.visible_projects)
   end
   helper_method :projects
 
