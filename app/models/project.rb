@@ -7,6 +7,7 @@ class Project < ActiveRecord::Base
   acts_as_ordered_taggable
 
   default_scope -> { order('title ASC') }
+  scope :reviewed, -> { where(reviewed: true) }
 
   has_many :awards
   has_many :award_categories, :class_name => 'AwardCategory', :through => :awards
