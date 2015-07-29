@@ -11,6 +11,7 @@
 
   <%= f.inputs do %>
     <%= f.input :enable_project_creation, :label => "Allow projects to be submitted and edited?" %>
+    <%= f.input :require_review, :label => "Require projects to be reviewed before they appear on the site?" %>
   <% end %>
 
   <% unless event.new_record? or !event.use_centres %>

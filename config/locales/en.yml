@@ -42,6 +42,7 @@ en:
         slug: Good slugs are lowercase and use dashes to separate words. This can't be changed after you've created it.
         use_centres: This can't be changed after you've created the event.
         enable_project_creation: Enable this during the event, and disable it after its finished.
+        require_review: If you turn this on after projects have already been submitted, they will be hidden until they have been reviewed.
     actions:
       project:
         create: "Submit my project"
