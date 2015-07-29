@@ -5,7 +5,12 @@
   <h1>Submit your project</h1>
 
   <p class="introduction">
-    To submit your project, you'll need to tell us about your team and what you've made. We'll create a page for it on the event website.
+    To submit your project, you'll need to tell us about your team and what you've made.
+    <% if event.require_review? %>
+      Once we've reviewed it, we'll create a page for it on the event website.
+    <% else %>
+      We'll create a page for it on the event website.
+    <% end %>
   </p>
 
   <%= render partial: 'form' %>
