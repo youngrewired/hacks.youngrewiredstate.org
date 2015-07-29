@@ -2,7 +2,15 @@
 
 <h1><%= event.title %></h1>
 
-<p><%= link_to "Edit event details", edit_admin_event_path(event) %></p>
+<p>
+  <%= link_to "Edit event details", edit_admin_event_path(event), class: 'button' %>
+
+  <% if event.require_review? %>
+    <%= link_to admin_event_unreviewed_projects_path(event), class: 'button' do %>
+      Review <%= pluralize(event.projects.unreviewed.count, 'project') %>
+    <% end %>
+  <% end %>
+</p>
 
 <table>
   <tbody>

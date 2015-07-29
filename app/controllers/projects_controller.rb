@@ -18,8 +18,13 @@ class ProjectsController < ApplicationController
     project.assign_attributes(project_params(:create))
 
     if project.save
-      flash.notice = 'Thanks for submitting your project.'
-      redirect_to event_project_url(event, project)
+      if event.require_review?
+        flash.notice = "Thanks for submitting your project. We'll take a look and it should appear here soon."
+        redirect_to event_url(event)
+      else
+        flash.notice = "Thanks for submitting your project."
+        redirect_to event_project_url(event, project)
+      end
     else
       breadcrumbs.add "New project", new_event_project_path(event)
       render action: :new

@@ -1,0 +1,56 @@
+<section class="review-project">
+  <h1>Reviewing project</h1>
+  <h2 class="remaining-projects"><%= pluralize(unreviewed_projects.count, 'project') %> left to review</h2>
+
+  <article class="unreviewed-project">
+    <header>
+      <h1><%= project.title %></h1>
+      <h2>by <%= project.team %></h2>
+    </header>
+
+    <% if project.image.present? %>
+      <%= image_tag project.image.url(:full), class: 'screenshot' %>
+    <% end %>
+
+    <div class="description">
+      <h3>Description</h3>
+      <%= mkdn project.description %>
+    </div>
+
+    <nav class="metadata">
+      <ul>
+        <li>
+          Tags:
+          <% if project.tags.any? %>
+            <% project.tags.map(&:name).join(',') %>
+          <% else %>
+            <em>no tags added</em>
+          <% end %>
+        </li>
+
+        <li>Project URL: <%= project.url.present? ? project.url : 'none' %></li>
+
+        <% if project.github_url.present? %>
+          <li>GitHub URL: <%= project.github_url %></li>
+        <% end %>
+
+        <% if project.svn_url.present? %>
+          <li>SVN URL: <%= project.svn_url %></li>
+        <% end %>
+
+        <li>Code URL: <%= project.code_url.present? ? project.code_url : 'none' %></li>
+        <li>Twitter: <%= project.twitter.present? ? project.twitter : 'none' %></li>
+      </ul>
+    </nav>
+  </article>
+
+  <nav class="review-tools">
+    <%= button_to 'Approve this project', approve_admin_event_unreviewed_project_path(event, project),
+                                          method: 'POST' %>
+    <%= button_to 'Reject this project',  reject_admin_event_unreviewed_project_path(event, project),
+                                          method: 'POST',
+                                          data: {
+                                            confirm: 'Are you sure?'
+                                          } %>
+  </nav>
+</section>

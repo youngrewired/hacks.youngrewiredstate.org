@@ -10,6 +10,12 @@ Projects::Application.routes.draw do
     resources :events, :except => :show do
       resources :award_categories, :except => :show
       resources :projects, :except => :show
+      resources :unreviewed_projects, path: 'review', only: [:index, :show] do
+        member do
+          post :approve
+          post :reject
+        end
+      end
     end
     resources :tags, except: [:show, :edit, :update]
 

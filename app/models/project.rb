@@ -8,6 +8,7 @@ class Project < ActiveRecord::Base
 
   default_scope -> { order('title ASC') }
   scope :reviewed, -> { where(reviewed: true) }
+  scope :unreviewed, -> { where(reviewed: false) }
 
   has_many :awards
   has_many :award_categories, :class_name => 'AwardCategory', :through => :awards
@@ -91,6 +92,10 @@ class Project < ActiveRecord::Base
 
   def project_url
     "http://hacks.rewiredstate.org" + Rails.application.routes.url_helpers.event_project_path(self.event, self)
+  end
+
+  def approve
+    update_attribute(:reviewed, true)
   end
 
   private
