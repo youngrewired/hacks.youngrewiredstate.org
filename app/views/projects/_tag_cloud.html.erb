@@ -1,7 +1,7 @@
 <nav class="tags">
   <h2>See projects by tag</h2>
   <div class="tag-cloud">
-    <% tag_cloud(projects.tag_counts, %w(frequency-1 frequency-2 frequency-3 frequency-4)) do |tag, css_class| %>
+    <% tag_cloud(projects.tag_counts_on(:tags, limit: 30), %w(frequency-1 frequency-2 frequency-3 frequency-4)) do |tag, css_class| %>
       <%= link_to tag.name, event_projects_list_path(event, tag: tag.name), class: css_class %>
     <% end %>
   </div>
