@@ -1,7 +1,9 @@
 module ApplicationHelper
 
   def mkdn(string)
-    RDiscount.new(string).to_html.html_safe
+    RDiscount.new(
+      html_escape(string)
+    ).to_html.html_safe
   end
 
   def home_url
