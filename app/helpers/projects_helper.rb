@@ -24,4 +24,8 @@ module ProjectsHelper
   def suggested_tags
     (event.visible_projects.top_tags(12) - project.tags)[0..8]
   end
+
+  def top_tags_for(projects)
+    projects.top_tags(40).sort
+  end
 end
